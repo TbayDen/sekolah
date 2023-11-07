@@ -1,0 +1,29 @@
+from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
+
+app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql://postgres:admin123@localhost:5432/sekolah"
+db = SQLAlchemy(app)
+
+
+
+class Siswa(db.Model):
+    __tablename__ = 'siswa'
+    id = db.Column(db.Integer, primary_key=True)
+    nis = db.Column(db.Integer)
+    nisn = db.Column(db.Integer)
+    nama = db.Column(db.String(250))
+    bidang_keahlian = db.Column(db.String(250))
+    kompetensi_keahlian = db.Column(db.String(250))
+    kelas = db.Column(db.String(50))
+    #semester =   
+    #Tahun ajaran = 
+
+    def __repr__(self):
+        return f"Siswa(id={self.id}, nis={self.nis}, nisn={self.nisn}, nama={self.nama}, bidang_keahlian={self.bidang_keahlian}), kompetensi_keahlian={self.kompetensi_keahlian}, kelas={self.kelas})"
+    
+    data = db.query.all()
+
+base.metadata.create_all(db.engine)
+
+

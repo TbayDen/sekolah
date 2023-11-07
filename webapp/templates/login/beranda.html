@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block title %}Beranda - Admin {% endblock %}
+
+{% block konten %}
+    <table>
+        <tr>
+            <th>DETAIL INFORMASI SISWA</th>
+        </tr>
+        <tr>
+            <td>No</td>
+            <td>NIS</td>
+            <td>NISN</td>
+            <td>NAMA</td>
+            <td>Bidang Keahlian</td>
+            <td>Kompetensi Keahlian</td>
+            <td>Kelas</td>
+            <td>Opsi</td>
+        </tr>
+
+        {% for tampil in datasiswa %}
+        <tr>
+            <td>{{tampil.id}}</td>
+            <td>{{tampil.nis}}</td>
+            <td>{{tampil.nisn}}</td>
+            <td>{{tampil.nama}}</td>
+            <td>{{tampil.bidang_keahlian}}</td>
+            <td>{{tampil.kompetensi_keahlian}}</td>
+            <td>{{tampil.kelas}}</td>
+            <td><a href="#">Update</a>||<a href="#">Hapus</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+{% endblock %}
